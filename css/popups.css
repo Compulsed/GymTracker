@@ -1,0 +1,96 @@
+.help{
+	width: 97.75%;
+
+  color:white;
+	background: rgba(119, 193, 88, .8);
+	font-size: 16px;
+
+	border:1px solid rgb(27, 27, 27);
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	/*border-radius:7px;*/
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.help h1{
+  color:white;
+}
+
+
+
+#notify {
+  /* Set the width and height */
+  width: 600px;
+  height: 15px;
+  /* Make the text a little more central to the div */
+  padding-top: 3px;
+  text-align: center;
+  /* Modify the appearance of the text */
+  font-size: 10px;
+
+  /* round only the bottom left and right corners */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  -o-border-bottom-left-radius: 10px;
+  -o-border-bottom-right-radius: 10px;
+  -moz-border-bottom-left-radius: 10px;
+  -moz-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  /* Make the div sit on the top of the window */
+  position:absolute;
+  top: 0;
+  /* setting margin to auto does not work when position is absolute, so lets use the hack we did before */
+  left: 50%;
+  margin-left: -300px;
+  display: none;
+
+}
+
+.error {
+  /* Modify the appearance of the text */
+  color: #000;
+  /* set the background colour to a nice and light red and add a darker border */
+  background-color: #F08080;
+  border: 1px solid #CC1100;
+}
+
+.success {
+  /* Modify the appearance of the text */
+  color: #FFF;
+  /* set the background colour to a nice and light red and add a darker border */
+  background-color: rgb(119, 193, 88);
+  border: 1px solid #3B5323;
+}
+
+.warning {
+  /* Modify the appearance of the text */
+  color: #FFF;
+  /* set the background colour to a nice and light red and add a darker border */
+  background-color: rgb(255, 175, 0);
+  border: 1px solid rgb(255, 225, 0);
+}
+
+.in_active{
+  color:rgb(180,180,180);
+}
+
+/*
+  : Information bar;
+*/
+
+
+.information_bar{
+  width:50px; 
+  height:300px;
+  
+  left:0px; 
+  top:300px;
+
+  position:fixed; 
+  background:white;
+  border: 1px solid rgb(119, 193, 88); 
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}

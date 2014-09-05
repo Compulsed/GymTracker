@@ -1,0 +1,211 @@
+html{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nav{
+	font-family: "lucida grande","Segoe UI",arial,verdana,"lucida sans unicode",tahoma,sans-serif;
+}
+
+body{
+	background:rgb(243, 243, 241);
+}
+
+::selection {
+background:rgb(119, 193, 88);
+color:#FFFFFF;
+}
+
+::-moz-selection {
+background:rgb(119, 193, 88);
+color:#FFFFFF;
+}
+
+::-webkit-selection {
+background:rgb(119, 193, 88);
+color:#FFFFFF;
+}
+
+
+
+.topbar{
+	width: 100%;
+	height: 60px;
+	background: rgb(28, 28, 28);
+	border-bottom: 3px solid rgb(119, 193, 88);
+	box-shadow: 0 0 50px rgba(0,0,0,0.3);
+}
+
+/* Navigation bar */
+
+.nav{
+	width: 960px;
+	margin: auto;
+}
+
+#logo{
+	font-size: 30px;
+	margin-top: 10px;
+	color:rgb(251, 251, 251);
+	display:inline;
+	float:left;
+
+	width:250px;
+	height:50px;
+
+
+	background-color:rgb(28,28,28);
+}
+
+
+.nav ul li{
+	float:right;
+      
+    border-radius: 3px 3px 0px 0px;
+/*	margin-top: 40px;  old aligned*/
+	margin-top: 37px;
+	margin-left: 10px;
+                
+    padding-top: 3px;            
+	/*width:80px;*/
+	height:20px;
+
+	font-size: 15px;
+                
+	text-align: center;
+}
+
+.nav ul li a{
+	text-decoration: none;
+	color: rgb(251, 251, 251);
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+
+.nav .selected, .nav li:hover, #GO{                        
+	color: rgb(251, 251, 251);
+	background: rgb(119, 193, 88);
+}
+
+        
+#user{
+	text-transform:capitalize;
+}
+/* PAGE INFORMATION */
+
+
+.bottom_line{
+	border-top: 1px solid rgb(221, 221, 221);
+	width: 70%;
+	margin: auto;
+	margin-top: 25px;
+	text-align: center;
+	padding:25px;
+
+}
+
+.bottom_line a{
+	color: rgb(187, 187, 187);
+	font-weight:bold;
+	text-decoration: none;
+}
+
+
+/*  LOGIN  */
+
+
+.popup {
+    padding: 10px 10px 10px;
+    background: #fff;
+	border: rgb(119, 193, 88) solid 2px;
+
+    z-index: 999;
+    display: none;
+    position: absolute;
+
+    width: 300px;
+}
+
+.popup a{
+	color: black;
+	text-decoration: none;
+}
+
+.popup p{
+}
+
+.popup td{
+	border: none;
+}
+
+.popup form{
+	width: 100%;
+}
+
+.popup .title{
+	font-weight: bold;
+	font-size: 12px;
+	text-align: right;
+}
+
+.popup input{
+	width: 100%;
+	border-radius: 3px;
+}
+
+.popup input[type=text], .popup input[type=password]{
+	height: 20px;
+	border: 1px solid #e3e3e3;
+}
+
+.popup input[type=submit]{
+	border: 1px solid rgb(76, 174, 76);
+	background: rgb(119, 193, 88);
+	color: white;
+	font-weight: bold;
+
+	padding: 3px;
+}
+
+.popup input[type=submit]:hover{
+	border: 1px solid rgb(119, 193, 88);
+	background: rgb(76, 174, 76);
+}
+
+
+
+
+/*  FEEDBACK */
+
+div.css-vertical-text {
+	color:#000;
+	border: 1px solid black;
+
+	border-radius: 3px;
+	box-shadow: 0 0 20px rgba(68,68,68,0.3);
+	border: 1px solid rgb(170, 170, 170);
+	padding:5px;
+	background:rgb(250, 250, 250);
+
+	writing-mode:tb-rl;
+	-webkit-transform:rotate(270deg);
+	-moz-transform:rotate(270deg);
+	-o-transform: rotate(270deg);
+	white-space:nowrap;
+	display:block;
+
+	width:100px;
+	height:20px;
+
+	font-family: ‘Trebuchet MS’, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:normal;
+
+	text-shadow: 0px 0px 1px rgb(68,68,68);
+
+	text-align: center;
+
+	position: fixed;
+	bottom: 50%;
+	right: -39px;
+}

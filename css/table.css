@@ -1,0 +1,407 @@
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  table-layout:auto;
+}
+
+th{
+  font-weight:bold;
+  
+  background: rgb(119, 193, 88);
+  color: rgb(250, 250, 250);
+  
+  height:10px;
+}
+
+
+
+th, td{
+  border: 1px solid #c6c9cc;
+  vertical-align: top;
+  padding:6px;
+  font-size: 14px;
+}
+
+.information th{
+  color:white;
+}
+
+td input{
+  width:95%;
+
+}
+
+.hover_selector tr:hover{
+  background: rgba(119, 193, 88, .5);
+}
+
+.col_muscle{
+  width: 20%;
+}
+
+.col_id{
+  width: 5%;
+}
+
+.col_name{
+  width:12%;
+  font-weight: bold;
+}
+
+.col_date{
+  width:28%;
+  font-weight: bold;
+}
+
+.col_sets, .col_reps{
+  width:1%;
+}
+
+.col_des{
+  width:50%;
+}
+
+.in_active{
+  color:rgb(180,180,180);
+}
+
+/* 
+  : Exercise Input; (920px)
+*/
+
+
+.exercise_input_table table {
+  table-layout:fixed;
+}
+
+
+.exercise_input_table td{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-bottom:5px;
+}
+
+.exercise_input_table .col_name{
+  width: 100px;
+}
+
+.exercise_input_table .col_sets{
+  width: 35px;
+}
+
+.exercise_input_table .col_musclue{
+  width: 175px;
+}
+
+.exercise_input_table .col_des{
+  width: 525px;
+}
+
+.spec_input_buttom{
+  background: linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: -moz-linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: -webkit-linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: rgb(119, 193, 88);
+  padding:10px 20px 10px 20px;
+  border:none;
+  border-radius: 7px;
+  color:white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.spec_input_buttom:hover{
+  background: rgb(76, 174, 76);
+}
+
+/*
+  : weight_edit_table
+*/
+
+.weight_edit_table table {
+  table-layout:fixed;
+}
+
+
+.weight_edit_table td{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-bottom:5px;
+}
+
+.weight_edit_table .col_name{
+  width: 100px;
+}
+
+.weight_edit_table .col_date{
+  width: 170px;
+}
+
+.weight_edit_table .col_id{
+  width: 25px;
+}
+
+.weight_edit_table .col_sets{
+  width: 35px;
+}
+
+.weight_edit_table .col_des{
+  width: 300px;
+}
+
+/*
+ : Registration
+ */
+
+.float_container{
+    width: 960px;
+    margin: auto;
+}
+
+.left_float p{
+  margin-top: 30px;
+}
+
+.left_float{
+  border-radius: 3px;
+  width:540px;
+  float:left;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  margin-top:25px;
+  border: 1px solid rgb(170, 170, 170);
+  padding: 20px;
+  background:rgb(250, 250, 250);
+
+} 
+
+.right_float{
+  border-radius: 3px;
+  width:330px;
+  float: right;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  margin-top:25px;
+
+  border: 1px solid rgb(170, 170, 170);
+  padding: 20px;
+  background:rgb(250, 250, 250);
+} 
+
+
+
+.register h2, .left_float h2{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+.register td {
+  padding: 5px;
+  vertical-align: middle;
+  border:none;
+}
+
+.register input[type=text], .register input[type=password] {
+  width:100%;
+}
+
+.register input[type=submit]{
+  background: linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: -moz-linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: -webkit-linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: rgb(119, 193, 88);
+  padding: 5px;
+  border:none;
+  height: 40px;
+  border-radius: 7px;
+  color:white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.register .left_col p{
+  padding: 5px;
+  height: 40px;
+}
+
+.register input[type=submit]:hover{
+  background: rgb(76, 174, 76);
+}
+
+
+.register .left_col{
+  text-align: right;
+  font-weight: bold;
+}
+
+.register .right_col{
+  text-align: left;
+  float:left;
+}
+
+.register .right_col input[type=checkbox]{
+  width: 15px;
+  height: 15px;
+}
+
+.register input[type=text], .register input[type=password] {
+  border: 1px solid #d3d3d3;
+  height: 25px;
+  border-radius: 3px;
+  outline-color: rgb(119, 193, 88);
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+
+
+
+/*.right_col input[type=text]:focus, .right_col input[type=password]:focus{
+  box-shadow: 0 0 20px rgba(119, 193, 88, .8);
+
+} */
+
+/*
+ : Change information
+ */
+
+.selection_row, #change_button{
+  border: 1px black solid;
+  padding: 5px;
+  
+  background: rgb(119, 193, 88);
+
+  width: 100%;
+
+  color:white;
+  font-weight:bold;
+  margin-bottom: 5px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.selection_row p{
+  color:white;
+}
+
+.selection_row:hover, #change_button:hover{
+  background: #8fc800 ;
+}
+
+#change_button{
+  margin-left: 225px;
+  width: 50%;
+}
+
+/*
+  : title van
+*/
+
+.title_nav p, .title_nav h1{
+  display:inline;
+}
+
+/*
+  : Database 
+*/
+
+.container{
+  height:18px;
+}
+
+.inline_legend{
+  display:inline;
+}
+
+.block{
+  padding-left: 18px;
+}
+
+.red, .red a{
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid rgba(255, 0, 0, 1);
+  color: rgba(255, 0, 0, 1);
+  padding: 0px 2px 0px 2px;
+  margin-left: 5px;
+}
+
+.black{
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
+  padding: 0px 2px 0 2px;  
+}
+
+
+/*
+  : BUTTONS;
+*/
+.selection_button{
+  padding: 5px;
+  border:none;
+  height: 28px;
+  border-radius: 7px;
+  color:white;
+  font-size: 25px;
+  font-weight: bold;
+
+  text-align: center;
+  display:inline-block;
+
+  width: 280px;
+  margin-right: 10px;
+
+  border:1px black solid;
+}
+
+.selection_green{
+  background: rgba(119, 193, 88, .7);
+}
+
+.selection_green:hover{
+  background: rgb(119, 193, 88);
+}
+
+
+.selection_blue{
+  background: rgba(70, 150, 227, .7);
+}
+
+.selection_blue:hover{
+  background: rgb(70, 150, 227);
+}
+
+.selection_red{
+  background: rgba(200, 50, 0, .7);
+}
+
+.selection_red:hover{
+  background: rgb(200, 50, 0);
+}
+
+
+/*
+  :Routine selection;
+*/
+
+.routine_selection p{
+  background: linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: -moz-linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: -webkit-linear-gradient(top, rgb(119, 193, 88) 0%,#8fc800 90%);
+  background: rgb(119, 193, 88);
+  padding:10px 20px 10px 20px;
+  border:1px solid black;
+  border-radius: 7px;
+  color:white;
+  font-size: 15px;
+  font-weight: bold;
+
+  overflow:hidden;
+
+  margin-top: 5px;
+}
+
+.routine_selection p:hover{
+  background: rgb(76, 174, 76);
+}
