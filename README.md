@@ -1,12 +1,11 @@
-GymTracker
-==========
+# Gym Tracker
 
-My tracking website for gym
+**Note**: This code is about 2 years old now and needs some major refactoring, optimization,
+and applications of learned design patterns. This application was my first project with PHP and was created in
+first year uni.
 
-and other stuff
+## Requirements
 
-more cool things
-
-mac added
-
-made another change
+* PHP
+* MySQL
+* Apache2
