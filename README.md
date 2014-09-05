@@ -9,3 +9,10 @@ first year uni.
 * PHP
 * MySQL
 * Apache2
+
+## Installation
+
+* Check that PHP is enabled in Apache conf, and you can use MySQL
+* In src/config check that your MySQL configuration lines up
+* In src/sql populate the database with `mysql -u <MySQL Username> -p < new.sql`
+* Check to see if everything is working by going to your **localhost**

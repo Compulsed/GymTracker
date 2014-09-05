@@ -3,14 +3,14 @@ CREATE DATABASE db_gym;
 USE db_gym;
 
 -- DROP THE HIGHEST level first
- 
+
 -- TO DO
 -- Change salting to NOT NULL
 
-  DROP VIEW IF EXISTS vw_Routines; 
+  DROP VIEW IF EXISTS vw_Routines;
   DROP VIEW IF EXISTS vw_Exercises;
   DROP VIEW IF EXISTS vw_ExerciseNames;
-  
+
   DROP TABLE IF EXISTS `tbl_routine_meta`;
   DROP TABLE IF EXISTS `tbl_exercise_values`;
   DROP TABLE IF EXISTS `tbl_routines`;
@@ -18,11 +18,11 @@ USE db_gym;
   DROP TABLE IF EXISTS `tbl_users`;
   DROP TABLE IF EXISTS `tbl_posts`;
   DROP TABLE IF EXISTS `tbl_comments`;
-  
+
 CREATE TABLE tbl_users(
    userId                 int(11)          AUTO_INCREMENT,                      -- The specific Id the Identfies each user
    active                 tinyint(1)       NOT NULL DEFAULT 1,                  -- Whether the account is active or not
-   
+
    username               varchar(30)      NOT NULL,                            -- The unique username given to a particular user
    loginPassword          char(60)         NOT NULL,                            -- The password has which is stored in place of a password
    salt                   char(21),                                             -- The Salt used with the hashing function
@@ -45,30 +45,30 @@ CREATE TABLE tbl_users(
    UNIQUE(emailAddress),
    Primary Key(userId)
 );
-  
-  
+
+
 CREATE TABLE tbl_exercises(
    exerciseId         int(11)        AUTO_INCREMENT,                       -- The exercise Id given to an exercise, this is unique to each user
    active             tinyint(1)     NOT NULL DEFAULT 1,                   -- Whether the record has been deleted or not
    userIdF            int(11)        NOT NULL,                             -- The User who owns the record
-   
+
    name               varchar(30)    NOT NULL,                             -- The user given name of the exercise
-   description        varchar(256)   NOT NULL,                             -- A small description of the exercise
+   description        varchar(255)   NOT NULL,                             -- A small description of the exercise
    reps               int(11)        NOT NULL,                             -- Amount of repitions recommended for each exercise
    sets               int(11)        NOT NULL,                             -- Amount of sets recommeded for each exercise
-   muscleGroup        varchar(256),                                        -- Particular muscle group the exercise targets
-   timeCreated        TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+   muscleGroup        varchar(255),                                        -- Particular muscle group the exercise targets
+   timeCreated        TIMESTAMP      NOT NULL DEFAULT CURRENT_TIMESTAMP,
    deactivationTime   DATE,                                                -- What date the record has be deactived at
-   rating             float(4,1),                                          -- Rating between 00.0 and 100.0 
-   mediaUrl           varchar(256),                                        -- Stored as NULL(NO VIDEO) or a value, video link to youtube. 
+   rating             float(4,1),                                          -- Rating between 00.0 and 100.0
+   mediaUrl           varchar(255),                                        -- Stored as NULL(NO VIDEO) or a value, video link to youtube.
 
    -- IS UNIQUE TO ADMIN
-   share              tinyint(1)     NOT NULL,                             -- Allows the exercise to be seen in the database                                    
+   share              tinyint(1)     NOT NULL,                             -- Allows the exercise to be seen in the database
    defaultExercise    tinyint(1),                                          -- Is an exercise that's included by default when the user signs up.
 
-   
 
-   UNIQUE(name, userIdF),                                                  -- a user can't own an exercise with the same name. 
+
+   UNIQUE(name, userIdF),                                                  -- a user can't own an exercise with the same name.
    Primary Key(exerciseId),
    FOREIGN KEY(userIdF) REFERENCES tbl_users(userId)
 );
@@ -79,16 +79,16 @@ CREATE TABLE tbl_routines(
    active            tinyint(1)        NOT NULL DEFAULT 1,                  -- Whether the record has been deleted or not
    userIdF           int(11)           NOT NULL,                            -- The User who owns the record
    exerciseIdF       int(11)           NOT NULL,                            -- Determines which exercise is linked in
-   
+
    routineName       varchar(30)       NOT NULL,                            -- Name of the routine
-   timeCreated       TIMESTAMP         NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+   timeCreated       TIMESTAMP         NOT NULL DEFAULT CURRENT_TIMESTAMP,
    deactivationTime  DATE,                                                  -- What date the record has be deactived at
 
 
    -- IS UNIQUE TO ADMIN
-   share              tinyint(1)     NOT NULL,                             -- Allows the routine to be seen in the database                                    
+   share              tinyint(1)     NOT NULL,                             -- Allows the routine to be seen in the database
    defaultRoutine     tinyint(1),                                          -- Is a routine that's included by default when the user signs up.
-   
+
    UNIQUE(userIdF, exerciseIdF, routineName),                               -- a routine can't have the same exercise, in the routine.
    Primary Key(routineId),                                                  -- Primary key, this is used for indexing
    FOREIGN KEY(exerciseIdF) REFERENCES tbl_exercises(exerciseId),           -- This is used to enforce refeential integrity
@@ -104,9 +104,9 @@ CREATE TABLE  tbl_routine_meta(
   purpose             text          NOT NULL,                               -- Why you would do this routine
   timeCreated         TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,     -- When the collection was created
   deactivationTime    DATE,                                                 -- When the collection was declated deleted
-  rating              float(4,1),  
+  rating              float(4,1),
 
-  UNIQUE(routineNameF, userIdF),   
+  UNIQUE(routineNameF, userIdF),
   -- FOREIGN KEY(routineNameF) REFERENCES tbl_routines(routineName),
   FOREIGN KEY(userIdF) REFERENCES tbl_users(userId),
   Primary Key(routineMetaId)
@@ -116,38 +116,38 @@ CREATE TABLE tbl_exercise_values(
   liftId             int(11)               AUTO_INCREMENT, -- The into record value(primary key)
   active             tinyint(1)            NOT NULL DEFAULT 1,
   userIdF            int(11)               NOT NULL,
-  
-  weightDone         float(7,3)            NOT NULL,       -- The amount 
+
+  weightDone         float(7,3)            NOT NULL,       -- The amount
   repsCompleted      int(11)               NOT NULL,
   setsCompleted      int(11)               NOT NULL,
   timeCompleted      TIMESTAMP             DEFAULT CURRENT_TIMESTAMP,
   exerciseIdF        int(11)               NOT NULL,
   notes              text                  NOT NULL,      -- EMPTY MEANS NO COMMENT, Text means there is a comment
-  deactivationTime   DATE, 
-  
+  deactivationTime   DATE,
+
   Primary KEY(liftId),
   FOREIGN KEY(exerciseIdF) REFERENCES tbl_exercises(exerciseId),
   FOREIGN KEY(userIdF) REFERENCES tbl_users(userId)
 );
 
 
--- 
+--
 -- Comments and post tables
--- 
+--
 
 CREATE TABLE tbl_posts(
   postId       int(11)       AUTO_INCREMENT,
-  title        varchar(256)  NOT NULL,
+  title        varchar(255)  NOT NULL,
   bodyText     text          NOT NULL,
   previewText  text          NOT NULL,
 
   author       int(11)       NOT NULL,
-  tags         varchar(256),
+  tags         varchar(255),
   creationDate TIMESTAMP     NOT NULL DEFAULT CURRENT_TIMESTAMP,
   editedBy     int(11),
   editDate     datetime,
   isEdit       tinyint(1)    NOT NULL DEFAULT 0,
-  
+
   UNIQUE(title),
   FOREIGN KEY(author) REFERENCES tbl_users(userId),
   FOREIGN KEY(editedBy) REFERENCES tbl_users(userId),
@@ -160,21 +160,21 @@ CREATE TABLE tbl_comments(
   postIdF           int(11)      NOT NULL,
   active            tinyint(1)   NOT NULL DEFAULT 1,
 
-  title             varchar(256) NOT NULL,
+  title             varchar(255) NOT NULL,
   bodyText          text         NOT NULL,
   creationDate      TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  deactivationTime  DATE, 
+  deactivationTime  DATE,
 
   FOREIGN KEY(userIdF) REFERENCES tbl_users(userId),
   FOREIGN KEY(postIdF) REFERENCES tbl_posts(postId),
   PRIMARY KEY(commentId)
 );
 
-Create view vw_Routines AS 
-   SELECT 
+Create view vw_Routines AS
+   SELECT
        tbl_routines.routineId   as   routineId,
        tbl_exercises.name       as   exerciseName,
-       tbl_routines.routineName as   routineName, 
+       tbl_routines.routineName as   routineName,
        tbl_exercises.exerciseId as   exerciseId,
        tbl_routines.userIdF     as   userIdF,
        tbl_routines.active      as   routineActive,
@@ -183,55 +183,55 @@ Create view vw_Routines AS
        ON tbl_routines.exerciseIdF = tbl_exercises.exerciseId
        ORDER BY tbl_routines.routineId;
 
--- Joins where exercideIdF = exercideId on, exercises and exercise_values 
-Create view vw_ExerciseValues AS 
-   SELECT 
+-- Joins where exercideIdF = exercideId on, exercises and exercise_values
+Create view vw_ExerciseValues AS
+   SELECT
        tbl_exercise_values.setsCompleted      as   setsCompleted,
        tbl_exercise_values.repsCompleted      as   repsCompleted,
        tbl_exercise_values.timeCompleted      as   timeCompleted,
        tbl_exercise_values.active             as   active,
        tbl_exercise_values.weightDone         as   weight,
        tbl_exercise_values.liftId             as   liftId,
-       tbl_exercise_values.notes              as   inputDescription, 
-       tbl_exercise_values.userIdF            as   userIdF, 
+       tbl_exercise_values.notes              as   inputDescription,
+       tbl_exercise_values.userIdF            as   userIdF,
        tbl_exercises.name                     as   exerciseName,
        tbl_exercises.sets                     as   setsRecommened,
        tbl_exercises.reps                     as   repsRecommened,
        tbl_exercise_values.exerciseIdF        as   exerciseId
-       
-       FROM 
+
+       FROM
           tbl_exercise_values INNER JOIN tbl_exercises
-       ON 
-          tbl_exercise_values.exerciseIdF = tbl_exercises.exerciseId;  
+       ON
+          tbl_exercise_values.exerciseIdF = tbl_exercises.exerciseId;
 
 -- Returns the exercise names, using the exercise foreign key in the table routine
 Create view vw_Exercises AS
-    SELECT 
+    SELECT
       tbl_exercise_values.liftId as liftId,
       tbl_exercise_values.weightDone as weightDone,
       tbl_exercises.name as name,
       tbl_exercise_values.notes as notes,
       tbl_exercise_values.userIdF as userIdF
         FROM
-          tbl_exercise_values 
+          tbl_exercise_values
         INNER JOIN
           tbl_exercises
-      ON tbl_exercises.exerciseId = tbl_exercise_values.exerciseIdf;     
+      ON tbl_exercises.exerciseId = tbl_exercise_values.exerciseIdf;
 
 -- Returns the exercise name for a given routine
 CREATE view vw_ExerciseNames AS
-SELECT 
+SELECT
     tbl_exercises.name        as exerciseName,
     tbl_exercises.exerciseId  as exerciseId,
     tbl_routines.routineName  as routineName,
     tbl_routines.userIdF      as userIdF,
     tbl_exercises.active      as exerciseActive,
     tbl_routines.active       as routineActive
-      FROM 
-        tbl_routines 
-      INNER JOIN 
+      FROM
+        tbl_routines
+      INNER JOIN
         tbl_exercises
-      ON tbl_routines.exerciseIdF = tbl_exercises.exerciseId; 
+      ON tbl_routines.exerciseIdF = tbl_exercises.exerciseId;
 --      WHERE routineName = 'FIRST ROUTINE';  -- To input on the view
 
 INSERT INTO tbl_users(username, loginPassword, joined, firstName, lastName, emailAddress, adminLevel, isKilo, lastTimeActive, salt) VALUES("compulsed", "$2a$05$1MCxqzryxGEFhec47Ycol.nYm1TJ7SYsbbuenz42AdjFUGIzVGHtG", now(), "Dale", "Salter", "djsalter93@hotmail.com", 1, 1, now(), "1MCxqzryxGEFhec47Ycol");
@@ -328,7 +328,7 @@ INSERT INTO tbl_exercise_values(userIdF, weightDone, repsCompleted, setsComplete
 -- CALL `p2`();
 
 
--- CREATE PROCEDURE `pPosts` (IN var1 varchar(256))
+-- CREATE PROCEDURE `pPosts` (IN var1 varchar(255))
 -- LANGUAGE SQL
 -- DETERMINISTIC
 -- SQL SECURITY DEFINER

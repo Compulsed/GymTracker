@@ -2,6 +2,8 @@
         ob_start();
         session_start();
 
+		date_default_timezone_set('Australia/Sydney');
+
         if(isset($_SESSION["myuserid"])){
 			require_once "inc/config.php";
 			require_once "inc/functions.php";
@@ -28,17 +30,17 @@
 	<link rel="stylesheet" href="/css/news_page.css">
 	<link rel="stylesheet" href="/css/table.css">
 	<link rel="stylesheet" href="/css/popups.css">
-	
+
 	<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
 	<script type="text/javascript" src="/js/Chart.min.js"></script>
-	
+
 	<script type="text/javascript" src="/js/website.js"></script>
 
 
 </head>
 <body>
-	
+
 <a href="mailto:djsalter@hotmail.com?Subject=Feedback">
 <div class="css-vertical-text">
 		Feedback
@@ -46,12 +48,12 @@
 </a>
 
 <div class="topbar">
-	<div class="nav">      
-    
+	<div class="nav">
+
 	<a href="/" id="logo" alt="The NetGym website" title="NetGym logo" rel="home">
 		<img src="/img/logo3.png" alt="NetGym logo"/>
-	</a>          
-		<ul><?php              
+	</a>
+		<ul><?php
 			if(isset($_SESSION["myuserid"])){
 				echo '<li id="logout">		<a href="/logout">Logout</a></li>' . PHP_EOL;
 				echo '<li id="user">  		<a href="/profile">' . $firstName . '</a></li>' . PHP_EOL;
@@ -69,11 +71,11 @@
 				//echo '<li id="#"><a href="/">Routines</a></li>' . PHP_EOL;
 				// echo '<li id="database">	<a href="/database">Database</a></li>' . PHP_EOL;
 				echo '<li id="articles">	<a href="/articles">Articles</a></li>' . PHP_EOL;
-			}?>       
+			}?>
 
  			<?php if(!isset($_SESSION['myuserid'])): ?>
 			<!-- Is only displayed if logged out -->
- 			
+
 			<div class="popup">
 				<form method="post" action="/check_login">
 
@@ -108,20 +110,19 @@
 						<td>
 							<p style="">Stay logged in?</p>
 						</td>
-						
+
 						<td>
 							<input style="width:20px;" type="checkbox" name="stay_logged_in" checked/>
 						</td>
-					
+
 					</tr>
 				</table>
 
 				</form>
 			</div>
 
- 			<?php endif ?> 
+ 			<?php endif ?>
 		</ul>
-        
+
 	</div><!-- nav -->
 </div><!-- top bar -->
-    
